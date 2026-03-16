@@ -1,15 +1,7 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// CODESTITCH GLOBAL STYLES
-// Core stylesheet containing CSS variables, dark mode styles, base element
-// styling, typography rules, utility classes, component styles, navigation,
-// footer, and other repeated section styles for the entire site
-// ─────────────────────────────────────────────────────────────────────────────
-
 /*-- -------------------------- -->
 <---        Core Styles         -->
 <--- -------------------------- -*/
 
-/* CodeStitch Core Styles + Reset */
 @media only screen and (min-width: 0px) {
 	/* All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
 	:root {
