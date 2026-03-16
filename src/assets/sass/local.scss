@@ -122,18 +122,8 @@
             left: 0;
             top: 0;
         }
-
-        .cs-picture2 {
-            width: calc(414 / 16 * 1em);
-            height: calc(400 / 16 * 1em);
-            background-color: #fff;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-            /* 6px - 12px */
-            border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-            right: 0;
-            bottom: 0;
-        }
     }
+
 }
 
 /* Desktop - 1024px */
@@ -167,12 +157,6 @@
                 &:after {
                     background: var(--accent);
                 }
-            }
-
-            .cs-picture2 {
-                background-color: var(--dark);
-                /* 6px - 12px */
-                border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
             }
 
             .cs-topper {
@@ -214,11 +198,6 @@
         .cs-picture1 {
             left: auto;
             right: 0;
-        }
-
-        .cs-picture2 {
-            right: auto;
-            left: 0;
         }
 
         .cs-quote {

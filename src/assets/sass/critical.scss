@@ -23,41 +23,6 @@
         /* Prevents white rectangle pseudos from overlapping the sections below */
         overflow: hidden;
 
-        &:before {
-            /* Left side of the triangle */
-            content: "";
-            width: calc(500 / 16 * 1rem);
-            /* make really long so it covers the whole screen all the way to desktop */
-            height: calc(4000 / 16 * 1rem);
-            background: #fff;
-            opacity: 1;
-            transform: rotate(-67deg);
-            transform-origin: center;
-            position: absolute;
-            display: block;
-            bottom: calc(-2235 / 16 * 1rem);
-            /* this makes the right edge sit at the 50% line at all times */
-            right: 50%;
-            z-index: 0;
-        }
-
-        &:after {
-            /* Right side of the triangle */
-            content: "";
-            width: calc(500 / 16 * 1rem);
-            height: calc(4000 / 16 * 1rem);
-            background: #fff;
-            opacity: 1;
-            transform: rotate(67deg);
-            transform-origin: center;
-            position: absolute;
-            display: block;
-            bottom: calc(-2235 / 16 * 1rem);
-            /* this makes the left edge sit at the 50% line at all times */
-            left: 50%;
-            z-index: 0;
-        }
-
         .cs-background {
             width: 100%;
             height: 100%;
@@ -91,6 +56,19 @@
                 width: 100%;
                 object-fit: cover;
             }
+        }
+
+        .cs-background .fade {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            z-index: 2;
+            background-image: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 100%
+            )
         }
 
         .cs-container {
@@ -165,9 +143,13 @@
 @media only screen and (min-width: 0rem) {
     body.dark-mode {
         #hero-143 {
-            &:before,
-            &:after {
-                background: var(--dark);
+            .cs-background .fade
+                {
+                background-image: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0) 0%,
+                    #082032 100%
+                )
             }
 
             .cs-background {
@@ -208,6 +190,7 @@
             background-color: #fff;
             /* prevents padding and border from affecting height and width */
             box-sizing: border-box;
+            float: le;
         }
 
         .cs-item {

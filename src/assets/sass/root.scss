@@ -13,13 +13,13 @@
 @media only screen and (min-width: 0px) {
 	/* All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
 	:root {
-		--primary: #ff6a3e;
-		--primaryLight: #ffba43;
-		--secondary: #ffba43;
-		--secondaryLight: #ffba43;
+		--primary: #0f3788;
+		--primaryLight: #ffffff;
+		--secondary: #0f3788;
+		--secondaryLight: #ffffff;
 		--headerColor: #1a1a1a;
 		--bodyTextColor: #4e4b66;
-		--bodyTextColorWhite: #fafbfc;
+		--bodyTextColorWhite: #ffffff;
 
 		/* Dark Mode Styles */
 		--dark: #082032;
@@ -45,7 +45,6 @@
 		overflow-x: hidden;
 		font-family: var(--bodyFont);
 		font-size: 100%;
-		transition: background-color 0.3s;
 		color: var(--bodyTextColor);
 	}
 
@@ -65,7 +64,7 @@
 		text-align: inherit;
 		letter-spacing: 0.1em;
 		font-weight: 700;
-		color: var(--primary);
+		color: var(--headerColor);
 		margin-bottom: 0.25rem;
 		display: block;
 	}
@@ -416,21 +415,26 @@
 	}
 
 	#cs-navigation {
-		width: 100%;
+		padding: calc(12 / 16 * 1rem) calc(16 / 16 * 1rem);
+		width: 80%;
 		/* prevents padding and border from affecting height and width */
 		box-sizing: border-box;
-		padding: calc(12 / 16 * 1rem) calc(16 / 16 * 1rem);
-		background-color: #fff;
+		background-color: #00000081;
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 		position: fixed;
 		z-index: 10000;
+		border-radius: 5em;
+		margin-top: 2em;
+		margin-left: 10%;
+		margin-right: 10%;
 
 		&:before {
 			/* black blurred overlay */
 			content: "";
 			width: 0%;
-			height: 100vh;
+			height: 30rem;
 			background: rgba(0, 0, 0, 0.6);
+			box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
 			opacity: 0;
 			display: block;
 			position: absolute;
@@ -440,6 +444,7 @@
 			transition: width 0.5s, opacity 0.3s;
 			-webkit-backdrop-filter: blur(10px);
 			backdrop-filter: blur(10px);
+			border-radius: 2rem;
 		}
 
 		&.cs-active {
@@ -481,8 +486,8 @@
 			z-index: 10;
 
 			img {
-				width: 100%;
-				height: 100%;
+				width: 80%;
+				height: 80%;
 				/* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
 				object-fit: contain;
 				/* places the image to the left edge of the parent */
@@ -532,7 +537,7 @@
 		.cs-line {
 			width: 100%;
 			height: 2px;
-			background-color: #1a1a1a;
+			background-color: #ffffff;
 			border-radius: 2px;
 			position: absolute;
 			left: 50%;
@@ -565,9 +570,8 @@
 		}
 
 		.cs-ul-wrapper {
-			height: 100vh;
+			height: 30rem;
 			background-color: #fff;
-			box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
 			opacity: 0;
 			position: absolute;
 			top: 100%;
@@ -578,6 +582,8 @@
 			transform: scaleX(0);
 			transition: transform 0.4s, opacity 0.3s;
 			transform-origin: top right;
+			border-top-right-radius: 2rem;
+			border-bottom-right-radius: 2rem;
 		}
 
 		.cs-ul {
@@ -592,7 +598,6 @@
 			justify-content: flex-start;
 			align-items: flex-end;
 			gap: calc(20 / 16 * 1rem);
-			overflow: scroll;
 		}
 
 		.cs-li {
@@ -611,27 +616,6 @@
 			&:nth-of-type(2) {
 				transition-delay: 0.1s;
 			}
-			&:nth-of-type(3) {
-				transition-delay: 0.15s;
-			}
-			&:nth-of-type(4) {
-				transition-delay: 0.2s;
-			}
-			&:nth-of-type(5) {
-				transition-delay: 0.25s;
-			}
-			&:nth-of-type(6) {
-				transition-delay: 0.3s;
-			}
-			&:nth-of-type(7) {
-				transition-delay: 0.35s;
-			}
-			&:nth-of-type(8) {
-				transition-delay: 0.4s;
-			}
-			&:nth-of-type(9) {
-				transition-delay: 0.45s;
-			}
 		}
 
 		.cs-li-link {
@@ -649,8 +633,8 @@
 				/* active state underline */
 				content: "";
 				width: 100%;
-				height: 1px;
-				background: currentColor;
+				height: 4px;
+				background: var(--primary);
 				opacity: 1;
 				display: none;
 				position: absolute;
@@ -692,6 +676,10 @@
 
 			.cs-li-link {
 				color: var(--bodyTextColorWhite);
+
+				&:before {
+					background: var(--primaryLight);
+				}
 			}
 		}
 	}
@@ -967,14 +955,19 @@
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 1024px) {
 	#cs-navigation {
-		width: 100%;
+		width: 80%;
 		/* prevents padding and border from affecting height and width */
 		box-sizing: border-box;
+		background-color: #00000081;
 		padding: 0 calc(16 / 16 * 1rem);
-		background-color: #fff;
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 		position: fixed;
 		z-index: 10000;
+		border-radius: 5em;
+		margin-top: 2em;
+		margin-left: 10%;
+		margin-right: 10%;
+		
 
 		.cs-container {
 			width: 100%;
@@ -996,7 +989,7 @@
 			height: calc(65 / 16 * 1rem);
 			/* margin-right auto pushes everything away from it to the right */
 			margin: 0 auto 0 0;
-			padding: 0;
+			padding: 0.3em;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -1034,7 +1027,7 @@
 			line-height: 1.5em;
 			text-decoration: none;
 			margin: 0;
-			color: var(--bodyTextColor);
+			color: var(--bodyTextColorWhite);
 			display: block;
 			position: relative;
 			&:hover {
@@ -1070,7 +1063,7 @@
 @media only screen and (min-width: 1024px) {
 	body.dark-mode {
 		#cs-navigation {
-			background-color: var(--dark);
+			background-color: rgb(8, 32, 50, 0.8);
 
 			.cs-logo {
 				/* makes it turn white */
@@ -1232,6 +1225,7 @@
 			flex-direction: column;
 			/* centers content horizontally, set to flex-start to left align */
 			align-items: center;
+			z-index: 1;
 		}
 
 		.cs-title {
@@ -1252,10 +1246,9 @@
 			width: 100%;
 			display: block;
 			position: absolute;
-			z-index: -1;
+			z-index: 0;
 			top: 0;
 			left: 0;
-			z-index: -1;
 
 			&:before {
 				/* black color overlay */
@@ -1264,8 +1257,8 @@
 				display: block;
 				height: 100%;
 				width: 100%;
-				background: #000;
-				opacity: 0.8;
+				background: var(--primary);
+				opacity: 0.4;
 				top: 0;
 				left: 0;
 				z-index: 1;
