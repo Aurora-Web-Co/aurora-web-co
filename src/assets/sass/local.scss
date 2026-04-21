@@ -250,3 +250,250 @@
     }
   }
 }
+
+/*-- -------------------------- -->
+<---          Contact           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #cs-contact-265 {
+    padding: var(--sectionPadding);
+
+    .cs-container {
+      width: 100%;
+      max-width: calc(1280 / 16 * 1rem);
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+
+    .cs-content {
+      width: 100%;
+      max-width: 36rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    #cs-form-success {
+      width: 100%;
+      max-width: 36rem;
+      padding: 2rem;
+      border: 1px solid var(--primary);
+      border-radius: 0.5rem;
+      box-shadow: 0 0 16px rgba(0, 212, 255, 0.15);
+
+      .cs-success-title {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .cs-success-text {
+        color: var(--bodyTextColor);
+        margin: 0;
+      }
+    }
+
+    #cs-form-265 {
+      width: 100%;
+      max-width: 36rem;
+
+      label {
+        font-size: calc(16 / 16 * 1rem);
+        line-height: 1.5em;
+        font-weight: 700;
+        margin-bottom: clamp(0.75rem, 1.3em, 1.25rem);
+        color: var(--headerColor);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cs-label-message {
+        margin-bottom: clamp(2rem, 6.3vw, 3rem);
+      }
+
+      input,
+      textarea {
+        &:focus::placeholder {
+          color: transparent;
+        }
+      }
+
+      input,
+      textarea {
+        font-size: calc(16 / 16 * 1rem);
+        width: 100%;
+        height: calc(45 / 16 * 1rem);
+        margin-top: calc(4 / 16 * 1rem);
+        padding-left: calc(20 / 16 * 1rem);
+        border: 1px solid #b4b2c7;
+        border-radius: calc(4 / 16 * 1rem);
+        box-sizing: border-box;
+        transition: border 0.3s;
+
+        &:hover {
+          border: 1px solid var(--primary);
+        }
+      }
+
+      textarea {
+        font-family: inherit;
+        padding-top: calc(20 / 16 * 1rem);
+        min-height: calc(120 / 16 * 1rem);
+      }
+
+      .cs-button-solid {
+        width: 100%;
+      }
+    }
+
+    .cs-submit {
+      width: 100%;
+      border: none;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .cs-right-section {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: calc(4 / 16 * 1rem);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    .cs-header {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      line-height: 1.2em;
+      font-weight: 700;
+      margin-bottom: calc(8 / 16 * 1rem);
+      color: var(--bodyTextColorWhite);
+      display: block;
+    }
+
+    .cs-link {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      line-height: 1.2em;
+      text-decoration: none;
+      margin-bottom: calc(20 / 16 * 1rem);
+      color: var(--bodyTextColorWhite);
+      display: block;
+      position: relative;
+
+      &:before {
+        content: "";
+        width: 0%;
+        height: 2px;
+        background: currentColor;
+        opacity: 1;
+        position: absolute;
+        display: block;
+        bottom: calc(-2 / 16 * 1rem);
+        left: 0;
+        transition: width 0.3s;
+      }
+
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .cs-block {
+      display: block;
+    }
+  }
+}
+
+/* Tablet - 700px */
+@media only screen and (min-width: 43.75rem) {
+  #cs-contact-265 {
+    #cs-form-265 {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      label {
+        width: 48%;
+      }
+
+      .cs-label-message {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+  #cs-contact-265 {
+    .cs-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-top: 3rem;
+    }
+
+    .cs-left-section {
+      max-width: 48%;
+    }
+
+    #cs-form-265 {
+      label {
+        width: 100%;
+      }
+    }
+
+    .cs-right-section {
+      height: calc(686 / 16 * 1rem);
+      width: 50vw;
+      max-width: 50%;
+      flex: none;
+      justify-content: flex-start;
+    }
+
+    .cs-block {
+      display: inline-block;
+    }
+  }
+}
+
+/* Small Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+  #cs-contact-265 {
+    #cs-form-265 {
+      column-gap: 0;
+      label {
+        width: 48%;
+        max-width: calc(305 / 16 * 1rem);
+      }
+
+      .cs-label-message {
+        max-width: 100%;
+      }
+    }
+
+    .cs-right-section {
+      height: calc(578 / 16 * 1rem);
+    }
+  }
+}
