@@ -124,6 +124,7 @@
     }
 
     .cs-code-block {
+      display: none;
       width: 100%;
       background: #1e2030;
       border-radius: 0.75rem;
@@ -247,6 +248,10 @@
 
     .cs-title {
       opacity: 0;
+    }
+
+    .cs-code-block {
+      display: block;
     }
   }
 }
