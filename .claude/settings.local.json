@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:find-and-update.company-information.service.gov.uk)",
+      "Bash(ipconfig)"
+    ]
+  }
+}

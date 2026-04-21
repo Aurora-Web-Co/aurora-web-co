@@ -1,205 +1,354 @@
 ---
-title: "East Lothian Web Design"
+title: "Aurora Web Co"
 description: "Meta description for the page"
 permalink: "/"
-tags: "sitemap" # content/content.json will make sure that all pages in content/ are marked with a "sitemap" tag, for automatic sitemap generation. As index.html is not in content/, we need to add it here to ensure the root page is included in the sitemap generation
+tags: "sitemap"
 ---
 
-{% extends "layouts/base.html" %}
+{% extends "layouts/base.html" %} {% block head %}
+<link rel="stylesheet" href="/assets/css/critical.css" />
 
-{% block head %}
-    <!-- Critical styles are loaded first -->
-    <link rel="stylesheet" href="/assets/css/critical.css" />
+{% if client.isProduction %}
+<link
+  rel="preload"
+  href="/assets/css/local.css"
+  as="style"
+  onload="
+    this.onload = null;
+    this.rel = 'stylesheet';
+  "
+/>
+<noscript><link rel="stylesheet" href="/assets/css/local.css" /></noscript>
+{% else %}
+<link rel="stylesheet" href="/assets/css/local.css" />
+<link rel="stylesheet" href="/assets/css/contact.css" />
+{% endif %} {% endblock %} {% block body %}
 
-    <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
-    {% if client.isProduction %}
-        <link rel="preload" href="/assets/css/local.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript>
-            <link rel="stylesheet" href="/assets/css/local.css">
-        </noscript>
+<!-- ============================================ -->
+<!--                    Hero                      -->
+<!-- ============================================ -->
 
-    {% else %}
-        <link rel="stylesheet" href="/assets/css/local.css" />
-    {% endif %}
+<section id="hero-143">
+  <canvas id="bg-canvas"></canvas>
+  <div class="cs-container">
+    <h1 class="cs-title">
+      Modern <br />
+      <em class="cs-accent">websites </em> built <br />
+      to grow your <br />
+      business
+    </h1>
+  </div>
+</section>
 
-    <!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
-    <!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
-    <!-- {% include "components/home-schema.html" %} -->
-{% endblock %}
+<!-- ============================================ -->
+<!--         Horizontal Scroll Wrapper            -->
+<!-- ============================================ -->
 
-{% block body %}
+<div class="horiz-scroll-wrapper">
+  <div class="horiz-scroll-track">
+    <!-- Nav rail — slides cursor along the services title line -->
+    <div class="scroll-nav" aria-hidden="true">
+      <div class="scroll-nav-inner">
+        <span class="scroll-nav-prefix"></span>
+        <span class="scroll-nav-ruler">
+          <span class="scroll-nav-cursor">Services</span>
+        </span>
+      </div>
+    </div>
 
-    <!-- ============================================ -->
-    <!--                    Hero                      -->
-    <!-- ============================================ -->
+    <div class="horiz-panels">
+      <!-- ============================================ -->
+      <!--                  Services                    -->
+      <!-- ============================================ -->
 
-    <div class="scroll-watcher"></div>
-
-    <section id="hero-143">
+      <section id="h-services-143">
         <div class="cs-container">
-            <h1 class="cs-title">
-                East Lothian Web Design
-            </h1>
+          <div class="cs-content">
+            <h2 class="cs-title">Services</h2>
             <p class="cs-text">
-                A freelance web developer looking to help small businesses grow their internet presence!
+              Whether you need a simple static site or a dynamic storepage, your
+              site encapsulates professionalism and functionality.
             </p>
-            <a href="/contact/" class="cs-button-solid">Get in Touch</a>
+            <br />
+          </div>
+          <div class="cs-card-group">
+            <div class="cs-item">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="/assets/svgs/s1.svg"
+                alt=""
+                width="40"
+                height="40"
+                aria-hidden="true"
+              />
+              <h3 class="cs-h3">Full Website Development</h3>
+              <p class="cs-item-text">
+                Built completely from scratch — no page builders, no templates.
+                Clean, fast, and fully custom.
+              </p>
+            </div>
+            <div class="cs-item">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="/assets/svgs/s2.svg"
+                alt=""
+                width="40"
+                height="40"
+                aria-hidden="true"
+              />
+              <h3 class="cs-h3">Continued Maintenance</h3>
+              <p class="cs-item-text">
+                Ongoing updates and support to keep your site running perfectly.
+              </p>
+            </div>
+            <div class="cs-item">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="/assets/svgs/s3.svg"
+                alt=""
+                width="40"
+                height="40"
+                aria-hidden="true"
+              />
+              <h3 class="cs-h3">Professional Design</h3>
+              <p class="cs-item-text">
+                Design consultations before development to make sure you get
+                exactly what you want.
+              </p>
+            </div>
+          </div>
+          <div class="cs-card-group">
+            <div class="cs-item">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="/assets/svgs/s4.svg"
+                alt=""
+                width="40"
+                height="40"
+                aria-hidden="true"
+              />
+              <h3 class="cs-h3">Responsive Web Design</h3>
+              <p class="cs-item-text">
+                Built to fit all screen sizes, ensures easy usability accross
+                all platforms.
+              </p>
+            </div>
+            <div class="cs-item">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="/assets/svgs/s5.svg"
+                alt=""
+                width="40"
+                height="40"
+                aria-hidden="true"
+              />
+              <h3 class="cs-h3">E-Commerce</h3>
+              <p class="cs-item-text">
+                Integrated web stores, sell your products directly through your
+                website.
+              </p>
+            </div>
+            <div class="cs-item">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="/assets/svgs/s6.svg"
+                alt=""
+                width="40"
+                height="40"
+                aria-hidden="true"
+              />
+              <h3 class="cs-h3">SEO</h3>
+              <p class="cs-item-text">
+                Search Engine Optimisation, to ensure your site attracts better
+                and more traffic.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <!-- Background Image -->
-        <picture class="cs-background">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 640, height: 1490 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 640, height: 1490 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 640, height: 1490 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | jpeg %}" type="image/jpeg">
-            <!--Large Tablet Image-->
-            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | jpeg %}" alt="kitchen" width="1" height="1" loading="eager" decoding="async">
-            <div class="fade" loading="lazy" decoding="async" aria-hidden="true"></div>
-        </picture>
-    </section>
+      <!-- ============================================ -->
+      <!--                 About Aurora Web Co           -->
+      <!-- ============================================ -->
 
-    <!-- ============================================ -->
-    <!--                   Services                   -->
-    <!-- ============================================ -->
-
-    <section id="h-services-143">
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s1.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Full website development
-                </h2>
-                <p class="cs-text">
-                    Completely from scratch, no use of web builders
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s3.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Continued Maintenance
-                </h2>
-                <p class="cs-text">
-                    Consitant updates, maintenance, and customer service 
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s4.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Professional Design
-                </h2>
-                <p class="cs-text">
-                    Prior design consultations to ensure you get the website you want
-                </p>
-            </li>
-        </ul>
-    </section>
-
-    <!-- ============================================ -->
-    <!--                 Side By Side                 -->
-    <!-- ============================================ -->
-
-    <section id="RPsbs-313">
+      <section id="RPsbs-313">
         <div class="cs-container">
-            <!-- Left Image Section -->
-            <div class="cs-image-group">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 482, height: 536 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 482, height: 536 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 482, height: 536 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 802, height: 892 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 802, height: 892 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 802, height: 892 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 1044, height: 1162 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 1044, height: 1162 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/gullane-hill.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" alt="lawyers" width="522" height="581" loading="lazy" decoding="async">
-                </picture>
+          <div class="cs-content">
+            <h2 class="cs-title">Aurora Web Co</h2>
+            <span class="cs-topper">About Aurora Web Co</span>
+            <p class="cs-text">
+              Aurora Web Co is a solo freelancing business looking to help
+              businesses with their online presence — whether it's a simple
+              informational site or a full e-commerce store.
+            </p>
+            <span class="cs-topper">Why Choose Me</span>
+            <p>
+              Being an individual freelancer I am able to give you a more
+              personal apprach to your businesses needs, instead of dealing with
+              larger organisations you get a direct connection to me.
+              Prioritsing quality over quantity ensures you get the freedom to
+              express your thoughts and opinions throughout all the stages of
+              development.
+            </p>
+          </div>
+          <div class="cs-stat-group">
+            <div class="cs-stat">
+              <span class="cs-number">100%</span>
+              <span class="cs-label">Custom Code</span>
             </div>
-            <!-- Right Content Section-->
-            <div class="cs-content">
-                <span class="cs-topper">About ELWD</span>
-                <h2 class="cs-title">
-                    East Lothian Web Design
-                </h2>
-                <div class="cs-quote">
-                    <span class="cs-quote-text">
-                        East Lothian Web Design is a solo freelancing business. I am looking
-                        to expand my portfolio and help local / small businesses in their online
-                        endevours, wether it be basic sites to host information about cafe's or
-                        restaurants to e-commerce stores to aid businesses sell products online.
-                    </span>
+            <div class="cs-stat">
+              <span class="cs-number">Fast</span>
+              <span class="cs-label">Load Times</span>
             </div>
+            <div class="cs-stat">
+              <span class="cs-number">Quality</span>
+              <span class="cs-label">Over Quantity</span>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ============================================ -->
-    <!--             Side By Side Reverse             -->
-    <!-- ============================================ -->
+      <!-- ============================================ -->
+      <!--                  About Me                    -->
+      <!-- ============================================ -->
 
-    <section id="RPsbsr-313">
+      <section id="RPsbsr-313">
         <div class="cs-container">
-            <!-- Left Image Section -->
-            <div class="cs-image-group">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 482, height: 536 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 482, height: 536 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 482, height: 536 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 802, height: 892 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 802, height: 892 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 802, height: 892 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 1044, height: 1162 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 1044, height: 1162 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/glasgow-uni.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" alt="lawyers" width="522" height="581" loading="lazy" decoding="async">
-                </picture>
+          <div class="cs-content">
+            <h2 class="cs-title">About Me</h2>
+            <span class="cs-topper">Lewis Munro</span>
+            <p class="cs-text">
+              A recent Computing Science graduate from the University of
+              Glasgow, born and raised in Gullane. Having worked in hospitality,
+              I understand how vital online visibility is for local businesses.
+            </p>
+            <p class="cs-text">
+              I'm looking to take my development skills and help businesses grow
+              their online presence. Get in touch using the form or contact
+              details below.
+            </p>
+          </div>
+          <div class="cs-tag-group">
+            {% raw %}
+            <div class="cs-code-block" aria-label="Code snapshot">
+              <div class="cs-code-line" style="--d:0s"><span class="ln"> 8</span><span class="code"><span class="nj-d">{%</span> <span class="nj-k">extends</span> <span class="nj-s">"layouts/base.html"</span> <span class="nj-d">%}</span> <span class="nj-d">{%</span> <span class="nj-k">block</span> <span class="nj-k">head</span> <span class="nj-d">%}</span></span></div>
+              <div class="cs-code-line" style="--d:.1s"><span class="ln"> 9</span><span class="code"><span class="ht-p">&lt;</span><span class="ht-t">link</span> <span class="ht-a">rel</span><span class="ht-p">=</span><span class="ht-s">"stylesheet"</span> <span class="ht-a">href</span><span class="ht-p">=</span><span class="ht-s">"/assets/css/critical.css"</span> <span class="ht-p">/&gt;</span></span></div>
+              <div class="cs-code-line" style="--d:.2s"><span class="ln">10</span><span class="code"></span></div>
+              <div class="cs-code-line" style="--d:.3s"><span class="ln">11</span><span class="code"><span class="nj-d">{%</span> <span class="nj-k">if</span> <span class="nj-i">client.isProduction</span> <span class="nj-d">%}</span></span></div>
+              <div class="cs-code-line" style="--d:.4s"><span class="ln">12</span><span class="code"><span class="ht-p">&lt;</span><span class="ht-t">link</span></span></div>
+              <div class="cs-code-line" style="--d:.5s"><span class="ln">13</span><span class="code">  <span class="ht-a">rel</span><span class="ht-p">=</span><span class="ht-s">"preload"</span></span></div>
+              <div class="cs-code-line" style="--d:.6s"><span class="ln">14</span><span class="code">  <span class="ht-a">href</span><span class="ht-p">=</span><span class="ht-s">"/assets/css/local.css"</span></span></div>
+              <div class="cs-code-line" style="--d:.7s"><span class="ln">15</span><span class="code">  <span class="ht-a">as</span><span class="ht-p">=</span><span class="ht-s">"style"</span></span></div>
+              <div class="cs-code-line" style="--d:.8s"><span class="ln">16</span><span class="code">  <span class="ht-a">onload</span><span class="ht-p">="</span></span></div>
+              <div class="cs-code-line" style="--d:.9s"><span class="ln">17</span><span class="code">    <span class="js-o">this</span><span class="ht-p">.</span><span class="js-p">onload</span> <span class="ht-p">=</span> <span class="js-k">null</span><span class="ht-p">;</span></span></div>
+              <div class="cs-code-line" style="--d:1s"><span class="ln">18</span><span class="code">    <span class="js-o">this</span><span class="ht-p">.</span><span class="js-p">rel</span> <span class="ht-p">=</span> <span class="js-s">'stylesheet'</span><span class="ht-p">;</span></span></div>
+              <div class="cs-code-line" style="--d:1.1s"><span class="ln">19</span><span class="code">  <span class="ht-p">"</span></span></div>
+              <div class="cs-code-line" style="--d:1.2s"><span class="ln">20</span><span class="code"><span class="ht-p">/&gt;</span></span></div>
+              <div class="cs-code-line" style="--d:1.3s"><span class="ln">21</span><span class="code"><span class="ht-p">&lt;</span><span class="ht-t">noscript</span><span class="ht-p">&gt;&lt;</span><span class="ht-t">link</span> <span class="ht-a">rel</span><span class="ht-p">=</span><span class="ht-s">"stylesheet"</span> <span class="ht-a">href</span><span class="ht-p">=</span><span class="ht-s">"/assets/css/local.css"</span> <span class="ht-p">/&gt;&lt;/</span><span class="ht-t">noscript</span><span class="ht-p">&gt;</span></span></div>
+              <div class="cs-code-line" style="--d:1.4s"><span class="ln">22</span><span class="code"><span class="nj-d">{%</span> <span class="nj-k">else</span> <span class="nj-d">%}</span></span></div>
+              <div class="cs-code-line" style="--d:1.5s"><span class="ln">23</span><span class="code"><span class="ht-p">&lt;</span><span class="ht-t">link</span> <span class="ht-a">rel</span><span class="ht-p">=</span><span class="ht-s">"stylesheet"</span> <span class="ht-a">href</span><span class="ht-p">=</span><span class="ht-s">"/assets/css/local.css"</span> <span class="ht-p">/&gt;</span></span></div>
+              <div class="cs-code-line" style="--d:1.6s"><span class="ln">24</span><span class="code"><span class="ht-p">&lt;</span><span class="ht-t">link</span> <span class="ht-a">rel</span><span class="ht-p">=</span><span class="ht-s">"stylesheet"</span> <span class="ht-a">href</span><span class="ht-p">=</span><span class="ht-s">"/assets/css/contact.css"</span> <span class="ht-p">/&gt;</span></span></div>
+              <div class="cs-code-line" style="--d:1.7s"><span class="ln">25</span><span class="code"><span class="nj-d">{%</span> <span class="nj-k">endif</span> <span class="nj-d">%}</span> <span class="nj-d">{%</span> <span class="nj-k">endblock</span> <span class="nj-d">%}</span> <span class="nj-d">{%</span> <span class="nj-k">block</span> <span class="nj-k">body</span> <span class="nj-d">%}</span></span></div>
             </div>
-            <!-- Right Content Section-->
-            <div class="cs-content">
-                <span class="cs-topper">About Me</span>
-                <h2 class="cs-title">
-                    Lewis Munro
-                </h2>
-
-                <div class="cs-quote">
-                    <span class="cs-quote-text">
-                        I am a recent Computing Science graduate from the university of Glasgow
-                        who is eager to help out in businesses online presence. I am born and raised
-                        in East Lothian, specifically Gullane, so I understand and appreciate the 
-                        important of local businesses to the community. having spent a few years 
-                        working in hospitality I also understand how important marketing and 
-                        online visibility is. 
-                    </span>
-                    <span class="cs-quote-text">
-                        During my time at university I spent lots of time designing and
-                        developing web applications. I am looking to take this knowledge 
-                        forward and use it to aid businesses grow. Please reach out using 
-                        the contact form or by using the details at the bottom of the page. 
-                    </span>
-                </div>
-            </div>
+            {% endraw %}
+          </div>
         </div>
-    {% include 'sections/cta.html' %}
+      </section>
+    </div>
+    <!-- /.horiz-panels -->
+  </div>
+  <!-- /.horiz-scroll-track -->
+
+  <!-- Snap targets: one per panel — these define the wrapper height and snap points -->
+  <div class="horiz-snap" aria-hidden="true"></div>
+  <div class="horiz-snap" aria-hidden="true"></div>
+  <div class="horiz-snap" aria-hidden="true"></div>
+</div>
+<!-- /.horiz-scroll-wrapper -->
+
+<section id="cs-contact-265">
+  <div class="cs-container">
+    <div class="cs-left-section">
+      <div class="cs-content">
+        <h2 class="cs-title">Contact</h2>
+        <p class="cs-text">
+          If you are interested in my services and would like to reach out,
+          please fill in the form and I will get back to you as soon as I can.
+        </p>
+      </div>
+    </div>
+    <div class="cs-right-section">
+      <div id="cs-form-success" hidden>
+        <p class="cs-success-title">Thanks for getting in touch!</p>
+        <p class="cs-success-text">I'll get back to you as soon as I can.</p>
+      </div>
+      <form id="cs-form-265" name="Contact Form" method="post" netlify>
+        <label>
+          Name
+          <input
+            required
+            type="text"
+            id="name-265"
+            name="name"
+            placeholder="John Doe"
+          />
+        </label>
+        <label>
+          Email
+          <input
+            required
+            type="email"
+            id="email-265"
+            name="email"
+            placeholder="name@email.com"
+          />
+        </label>
+        <label>
+          Phone
+          <input
+            required
+            type="tel"
+            id="phone-265"
+            name="phone"
+            placeholder="+441234567890"
+          />
+        </label>
+        <label>
+          How Did You Find Me
+          <input
+            type="text"
+            id="find-265"
+            name="find-us"
+            placeholder="Google, Friend, etc..."
+          />
+        </label>
+        <label class="cs-label-message">
+          Message
+          <textarea
+            required
+            name="Message"
+            id="message-265"
+            placeholder="Write message..."
+          ></textarea>
+        </label>
+        <button class="cs-button-solid cs-submit" type="submit">
+          Submit Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
