@@ -3,7 +3,11 @@
     "allow": [
       "WebSearch",
       "WebFetch(domain:find-and-update.company-information.service.gov.uk)",
-      "Bash(ipconfig)"
+      "Bash(ipconfig)",
+      "Bash(xargs grep *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
