@@ -57,7 +57,7 @@
 
     .cs-logo {
       height: 2.75rem;
-      width: 18.4%;
+      width: 15%;
     }
 
     .cs-li {
@@ -306,6 +306,7 @@
     padding: var(--sectionPadding);
     z-index: 1;
     background-color: var(--medium);
+    align-content: center;
 
     .cs-container {
       width: 100%;
