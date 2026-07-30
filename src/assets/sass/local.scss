@@ -389,8 +389,8 @@
 @media only screen and (min-width: 64rem) {
   #portfolio {
     .cs-card-group {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 52rem;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 80vw;
     }
   }
 }
